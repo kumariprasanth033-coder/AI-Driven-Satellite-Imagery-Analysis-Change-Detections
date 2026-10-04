@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  [data-theme="light"] {
+    /* Premium Technical Light Palette (Inspired by QGIS / NASA WorldWind / Bloomberg Terminal Light) */
+    --background: #F3F4F6;
+    --surface: #FFFFFF;
+    --surface-secondary: #F8F9FA;
+    --surface-elevated: #FFFFFF;
+    --surface-hover: #ECEEF2;
+    --border: #DDE1E6;
+    --border-strong: #B8C0CC;
+    --text-primary: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #6B7280;
+    --text-inverted: #FFFFFF;
+    
+    /* Semantic Precision Accents */
+    --accent: #0284C7;
+    --accent-hover: #0369A1;
+    --accent-subtle: #E0F2FE;
+    --quantum: #4F46E5;
+    --quantum-subtle: #EEF2FF;
+    --danger: #DC2626;
+    --danger-subtle: #FEF2F2;
+    --success: #059669;
+    --success-subtle: #ECFDF5;
+    --warning: #D97706;
+    --warning-subtle: #FFFBEB;
+    
+    /* Subtle Technical Shadows & Borders */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    
+    --map-tile-filter: none;
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    /* Premium Defense/Aerospace Dark Palette (Inspired by Palantir / Planet Labs / Dark Space Workstation) */
+    --background: #0B0E14;
+    --surface: #121820;
+    --surface-secondary: #171F2A;
+    --surface-elevated: #1D2633;
+    --surface-hover: #222D3D;
+    --border: #232E3E;
+    --border-strong: #334358;
+    --text-primary: #E6EDF3;
+    --text-secondary: #8B949E;
+    --text-muted: #656D76;
+    --text-inverted: #0B0E14;
+    
+    /* Precision Accents */
+    --accent: #38BDF8;
+    --accent-hover: #7DD3FC;
+    --accent-subtle: rgba(56, 189, 248, 0.12);
+    --quantum: #818CF8;
+    --quantum-subtle: rgba(129, 140, 248, 0.12);
+    --danger: #F43F5E;
+    --danger-subtle: rgba(244, 63, 94, 0.12);
+    --success: #10B981;
+    --success-subtle: rgba(16, 185, 129, 0.12);
+    --warning: #F59E0B;
+    --warning-subtle: rgba(245, 158, 11, 0.12);
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.6);
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    
+    --map-tile-filter: brightness(0.82) contrast(1.18) saturate(1.05);
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.011em;
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+}
+
+/* Technical Panels */
+.geo-panel {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.geo-panel:hover {
+  border-color: var(--border-strong);
+}
+
+.geo-panel-inset {
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+}
+
+/* Precision Hairline Separator */
+.geo-hairline {
+  border-color: var(--border);
+}
+
+/* Technical Monospace Values */
+.font-mono-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Workstation Button Core Styles */
+.geo-btn-primary {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 140ms ease;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+.geo-btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.geo-btn-primary:active {
+  transform: translateY(1px);
+}
+
+.geo-btn-secondary {
+  background-color: var(--surface-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 140ms ease;
+  cursor: pointer;
+}
+
+.geo-btn-secondary:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+.geo-btn-secondary:active {
+  transform: translateY(1px);
+}
+
+/* Table Precision Styles */
+.geo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+
+.geo-table th {
+  padding: 8px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  background-color: var(--surface-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.geo-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.geo-table tr:hover td {
+  background-color: var(--surface-hover);
+}
+
+/* Leaflet Overrides */
+.leaflet-container {
+  background-color: var(--surface) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--surface-elevated) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--shadow-md) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 10px 12px !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--surface-elevated) !important;
+  border: 1px solid var(--border-strong) !important;
+}
+
+.leaflet-bar {
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+  border-radius: var(--radius-sm) !important;
+  overflow: hidden !important;
+}
+
+.leaflet-bar a {
+  background-color: var(--surface) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--border) !important;
+  transition: background-color 140ms ease !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: var(--surface-hover) !important;
+  color: var(--text-primary) !important;
+}
+
+/* False-Color Infrared (CIR) simulation */
+.false-color-infrared-tile {
+  filter: hue-rotate(180deg) saturate(2.4) contrast(1.25) invert(0.12);
+}

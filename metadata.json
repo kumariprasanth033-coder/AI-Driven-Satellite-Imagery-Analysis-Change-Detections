@@ -1,0 +1,6 @@
+{
+  "name": "Satellite Imagery Analysis Platform",
+  "description": "Hybrid Classical AI/ML and Experimental Quantum Machine Learning platform for satellite remote sensing change detection, geospatial intelligence, and comparative evaluation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
